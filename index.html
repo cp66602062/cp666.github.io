@@ -300,12 +300,8 @@
       
         
           
-            <p>##</p>
-<p>#Reveal 1.0替换</p>
-<p>Reveal library 的版本太老了。我们必须要将新的 library 替换调iPhone里旧的 library。<br>scp /Applications/Reveal.app/Contents/SharedSupport/iOS-Libraries/libReveal.dylib root@your-iPhone’s-IP-address:/Library/RHRevealLoader/libReveal.dylib</p>
-<p>#Reveal 2.0替换</p>
-<p>Reveal 2.0以上library不叫libReveal.dylib了，换成了RevealServer.framework。可以将RevealServer.framework里面的RevealServer拷倒iPhone里，将文件名改成libReveal.dylib</p>
-<p>scp /Applications/Reveal.app/Contents/SharedSupport/iOS-Libraries/RevealServer.framework/RevealServer root@your-iPhone’s-IP-address:/Library/RHRevealLoader/libReveal.dylib</p>
+            <h1 id="RHRevealLoader替换library"><a href="#RHRevealLoader替换library" class="headerlink" title="RHRevealLoader替换library"></a>RHRevealLoader替换library</h1><h2 id="Reveal-1-0替换"><a href="#Reveal-1-0替换" class="headerlink" title="Reveal 1.0替换"></a>Reveal 1.0替换</h2><p>Reveal library 的版本太老了。我们必须要将新的 library 替换调iPhone里旧的 library。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ scp /Applications/Reveal.app/Contents/SharedSupport/iOS-Libraries/libReveal.dylib root@your-iPhone-IP-address:/Library/RHRevealLoader/libReveal.dylib</span><br></pre></td></tr></table></figure></p>
+<h2 id="Reveal-2-0替换"><a href="#Reveal-2-0替换" class="headerlink" title="Reveal 2.0替换"></a>Reveal 2.0替换</h2><p>Reveal 2.0以上library不叫libReveal.dylib了，换成了RevealServer.framework。可以将RevealServer.framework里面的RevealServer拷倒iPhone里，将文件名改成libReveal.dylib<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ scp /Applications/Reveal.app/Contents/SharedSupport/iOS-Libraries/RevealServer.framework/RevealServer root@your-iPhone-IP-address:/Library/RHRevealLoader/libReveal.dylib</span><br></pre></td></tr></table></figure></p>
 
           
         
@@ -425,8 +421,7 @@
       
         
           
-            <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
+            <h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
 <p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
 <h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
 <p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
