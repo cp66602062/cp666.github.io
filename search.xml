@@ -4,10 +4,22 @@
     <title><![CDATA[Cycript]]></title>
     <url>%2F2018%2F09%2F29%2FCycript%2F</url>
     <content type="text"><![CDATA[下载地址http://www.cycript.org/ 1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162636465666768先查找进程名称ps aux //查找所有进程ps aux | grep HuaYang //查找指定进程名的进程信息注入到进程 cycript -p SpringBoard//创建一个弹窗var alert = [[UIAlertView alloc] initWithTitle:@"\u0063\u0079\u0063\u0072\u0069\u0070\u0074\u8c03\u8bd5" message:@"cp666" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] return #"&lt;UIAlertView: 0x10b0665a0; frame = (0 0; 0 0); layer = &lt;CALayer: 0x170621280&gt;&gt;"[alert show][alert release]//如果知道一个对象在内存中的地址，可以通过“#”操作符来获取这个对象 [#0x10b0665a0 show] //如果知道一个类对象存在当前进程中，却不知道它的地址，不能通过“#”操作符来获取它，此时，不妨试试choose命令choose(UIAlertView)return [#"&lt;UIAlertView: 0x10b0665a0; frame = (0 0; 0 0); layer = &lt;CALayer: 0x170621280&gt;&gt;"]//打印出当前界面的view层级UIApp.keyWindow.recursiveDescription().toString() //Now/var/containers/Bundle/Application/7D69E3D5-8FF6-4BBD-937E-42A45C70C5E2/HuaYang.app/HuaYangcycript -p HuaYangUIApp.keyWindow.recursiveDescription().toString() //打印所有UI//通过view的nextResponder方法，可以找出它所属的视图控制器ViewController[#0x1552d1da0 nextResponder] #"&lt;PLBorderButton: 0x155343ce0; baseClass = UIButton; frame = (164 0; 131 46); hidden = YES; opaque = NO; layer = &lt;CALayer: 0x155343a30&gt;&gt;"screen = #0x155343ce0screen.hidden = NO recursiveDescription － 打印UIView对象[[UIApp keyWindow] recursiveDescription].toString()_printHierarchy － 直接打印所有UIViewController[[[UIWindow keyWindow] rootViewController] _printHierarchy].toString() _autolayoutTrace - recursiveDescription的简化版，去掉了UIView的一些描述[[UIApp keyWindow] _autolayoutTrace].toString()_ivarDescription - 打印某个对象所有instance的名字和值[choose(SBApplication)[0] _ivarDescription].toString()_methodDescription - 打印某个对象的属性，实例和类方法[choose(SBApplicationController)[0] _methodDescription].toString()[#0x104cf95e0 _methodDescription].toString()找到目标App的Documents目录路径cycript -p TargetApp[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask][0] 获取bundle info[[NSBundle mainBundle] infoDictionary].toString()触发UIControlEventTouchUpInside事件。[[choose(UIButton) objectAtIndex:0] sendActionsForControlEvents:UIControlEventTouchUpInside][#0x15d101c00 sendActionsForControlEvents:4095]cy# var sender = [[[[[UIApplication sharedApplication] keyWindow] subviews] objctAtIndex:0] nextResponder]#"&lt;ViewController: 0x159d15770&gt;"cy# [sender showImage:sender]]]></content>
+      <categories>
+        <category>IOS</category>
+      </categories>
+      <tags>
+        <tag>Cycript</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[Reveal]]></title>
     <url>%2F2018%2F09%2F29%2FReveal%2F</url>
     <content type="text"><![CDATA[RHRevealLoader替换libraryReveal 1.0替换Reveal library 的版本太老了。我们必须要将新的 library 替换调iPhone里旧的 library。1scp /Applications/Reveal.app/Contents/SharedSupport/iOS-Libraries/libReveal.dylib root@your-iPhone-IP-address:/Library/RHRevealLoader/libReveal.dylib Reveal 2.0替换Reveal 2.0以上library不叫libReveal.dylib了，换成了RevealServer.framework。可以将RevealServer.framework里面的RevealServer拷倒iPhone里，将文件名改成libReveal.dylib1scp /Applications/Reveal.app/Contents/SharedSupport/iOS-Libraries/RevealServer.framework/RevealServer root@your-iPhone-IP-address:/Library/RHRevealLoader/libReveal.dylib]]></content>
+      <categories>
+        <category>IOS</category>
+      </categories>
+      <tags>
+        <tag>Reveal</tag>
+      </tags>
   </entry>
 </search>
